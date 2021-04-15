@@ -9,7 +9,6 @@ public class CheckingGround : MonoBehaviour
         if(Trigger.gameObject.tag!="Player"&&Trigger.gameObject.tag!="MainCamera")
         {
           gameObject.GetComponentInParent<Penguin>().Ground = false;
-          
         }
     }
     private void OnTriggerStay2D(Collider2D Trigger)

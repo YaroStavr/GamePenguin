@@ -10,27 +10,29 @@ public class Penguin : MonoBehaviour
     public Animator animator;
     public bool Ground;
     private bool facingRight;
+    public float normalSpeed;
    
     
     void Start()
     {
         rb=GetComponent<Rigidbody2D>();
-        
     }
     void Update()
     {
         animator.SetFloat ("vSpeed", rb.velocity.y);
         animator.SetBool("LeftRight", false );
-        
-        
+
        if(Ground)
         {
             animator.SetBool("Ground", true);
             animator.SetBool("Jump 1", false ); // проверка находится ли персонаж в воздухе после прыжка
         }
         else animator.SetBool("Ground", false);
+        //-------------------------------------------------Настройка-кнопок-на-экране-------------------------------------------------
         
-        
+
+
+        //---------------------------------------------------Конец-настройки-кнопок---------------------------------------------------
         if(Input.GetKeyDown(KeyCode.Space)&&Ground&&!Input.GetKey(KeyCode.D)&&!Input.GetKey(KeyCode.A))//--------Прыжок/рывок при АФК
                 {                                      
                     rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
@@ -42,7 +44,6 @@ public class Penguin : MonoBehaviour
         {                                       
             if(!facingRight)Flip();
             rb.AddForce(transform.right * speed, ForceMode2D.Impulse);   
-            //transform.rotation = Quaternion.Euler(0, 180 ,0);
             animator.SetBool("LeftRight", true); 
                 
             if(Input.GetKeyDown(KeyCode.Space)&&Ground)//--------------------------------------------------------Прыжок/рывок
@@ -56,7 +57,6 @@ public class Penguin : MonoBehaviour
             {   
                 if(facingRight)Flip();                   
                 rb.AddForce(-transform.right * speed, ForceMode2D.Impulse);
-                //transform.rotation = Quaternion.Euler(0, 0 ,0); 
                 animator.SetBool("LeftRight", true);
                 if(Input.GetKeyDown(KeyCode.Space)&&Ground)//-----------------------------------------------------Прыжок/рывок
                 {                                      
@@ -74,4 +74,21 @@ public class Penguin : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
+    /*public void OnLeftButtonDown()
+    {
+        if(speed>=0f)
+        {
+            speed = -normalSpeed;
+        }
+    }
+    public void OnRightButtonDown()
+    {
+        if(speed <=0f)
+        {
+            speed = normalSpeed;
+        }
+    }*/
+
+
+
 }

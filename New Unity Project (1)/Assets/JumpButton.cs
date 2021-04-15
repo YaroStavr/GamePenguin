@@ -9,6 +9,8 @@ public class JumpButton : MonoBehaviour
     private Rigidbody2D rb;
     private float jumpHeight;
     private float speed;
+    //private bool Ground;
+    public float normalSpeed;
     
     void Start()
     {
@@ -16,22 +18,19 @@ public class JumpButton : MonoBehaviour
         rb=GetComponent<Rigidbody2D>();
         speed = GetComponent<Penguin>().speed;
     }
-
-    public void JumpJump()
+    
+    /*public void JumpJump()
     {
         rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
-        //rb.AddForce(new Vector2(rb.velocity.x, jumpHeight));
     }
     public void Right(bool Right)
     {
-
-        rb.AddForce(transform.right * speed, ForceMode2D.Impulse);
-        
+        rb.AddForce(transform.right * speed, ForceMode2D.Impulse);  
     }
     
     public void Left(bool Left)
     {
         rb.AddForce(-transform.right * speed, ForceMode2D.Impulse);   
-    }
+    }*/
     
 }
