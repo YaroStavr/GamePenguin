@@ -11,10 +11,11 @@ public class Penguin : MonoBehaviour
     public bool Ground;
     private bool facingRight;
     public float normalSpeed;
-   
+   public float n;
     
     void Start()
     {
+        //speed=0f;
         rb=GetComponent<Rigidbody2D>();
     }
     void Update()
@@ -28,11 +29,8 @@ public class Penguin : MonoBehaviour
             animator.SetBool("Jump 1", false ); // проверка находится ли персонаж в воздухе после прыжка
         }
         else animator.SetBool("Ground", false);
-        //-------------------------------------------------Настройка-кнопок-на-экране-------------------------------------------------
         
-
-
-        //---------------------------------------------------Конец-настройки-кнопок---------------------------------------------------
+        
         if(Input.GetKeyDown(KeyCode.Space)&&Ground&&!Input.GetKey(KeyCode.D)&&!Input.GetKey(KeyCode.A))//--------Прыжок/рывок при АФК
                 {                                      
                     rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
@@ -76,17 +74,22 @@ public class Penguin : MonoBehaviour
     }
     /*public void OnLeftButtonDown()
     {
-        if(speed>=0f)
-        {
+        rb.AddForce(transform.right * speed, ForceMode2D.Impulse); 
+            Debug.Log("Left"+speed+", "+normalSpeed);
             speed = -normalSpeed;
-        }
+            Debug.Log("Left "+speed+", "+normalSpeed);
     }
     public void OnRightButtonDown()
     {
-        if(speed <=0f)
-        {
+            Debug.Log("Left"+speed+", "+normalSpeed);
             speed = normalSpeed;
-        }
+            Debug.Log("Left "+speed+", "+normalSpeed);
+            
+    }
+    public void OnButtonUp()
+    {
+        speed = 0;
+        Debug.Log("Up "+speed+", "+normalSpeed);
     }*/
 
 

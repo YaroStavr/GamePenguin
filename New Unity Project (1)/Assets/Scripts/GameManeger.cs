@@ -10,8 +10,6 @@ public class GameManeger : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate=60;
-        
-
     }
 
     public Penguin movement;
@@ -28,8 +26,13 @@ public class GameManeger : MonoBehaviour
         }
     }
 
-    void Restart()
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene("MENU");
     }
 }
