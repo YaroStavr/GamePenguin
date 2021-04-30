@@ -6,11 +6,15 @@ public class Penguin : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float  speed;
+    public float speedMobile;
     public float jumpHeight;
+    public float moveInput;
     public Animator animator;
     public bool Ground;
     private bool facingRight;
     public float normalSpeed;
+
+    public Joystick joystick; 
    public float n;
     
     void Start()
@@ -18,8 +22,19 @@ public class Penguin : MonoBehaviour
         //speed=0f;
         rb=GetComponent<Rigidbody2D>();
     }
+    
     void Update()
     {
+        var MaxSpeed = rb.velocity.magnitude;
+        
+        //--------------------------------Кнопки для телефона----------------------------------------
+        //float h = Input.GetAxisRaw("Horizontal");
+        moveInput = joystick.Horizontal;
+        //rb.AddForce(Vector2.right * h * speed);
+        //rb.velocity = new Vector2(moveInput * speedMobile, rb.velocity.y);
+
+        //--------------------------------------Конец------------------------------------------------
+
         animator.SetFloat ("vSpeed", rb.velocity.y);
         animator.SetBool("LeftRight", false );
 
@@ -33,15 +48,20 @@ public class Penguin : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.Space)&&Ground&&!Input.GetKey(KeyCode.D)&&!Input.GetKey(KeyCode.A))//--------Прыжок/рывок при АФК
                 {                                      
+                    //rb.velocity = new Vector2(rb.velocity.y*speed, rb.velocity.y);
                     rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
                     animator.SetBool("Jump 1", true );
                 }
         
         
-        if(Input.GetKey(KeyCode.D))//----------------------------------------------------------------------------Право
+        if(Input.GetKey(KeyCode.D)||moveInput>0.01f)//----------------------------------------------------------------------------Право
         {                                       
             if(!facingRight)Flip();
-            rb.AddForce(transform.right * speed, ForceMode2D.Impulse);   
+            //moveInput = Input.GetAxisRaw("Horizontal");
+            //rb.velocity = new Vector2(moveInput*speedMobile, rb.velocity.y);
+            //if(MaxSpeed<10||Jump)
+            rb.AddForce(transform.right * speed, ForceMode2D.Force);
+            MaxSpeed = rb.velocity.magnitude;   
             animator.SetBool("LeftRight", true); 
                 
             if(Input.GetKeyDown(KeyCode.Space)&&Ground)//--------------------------------------------------------Прыжок/рывок
@@ -51,19 +71,30 @@ public class Penguin : MonoBehaviour
                 animator.SetBool("Jump 1", true );
             }
         }else
-            if(Input.GetKey(KeyCode.A))//------------------------------------------------------------------------Лево
-            {   
-                if(facingRight)Flip();                   
-                rb.AddForce(-transform.right * speed, ForceMode2D.Impulse);
-                animator.SetBool("LeftRight", true);
-                if(Input.GetKeyDown(KeyCode.Space)&&Ground)//-----------------------------------------------------Прыжок/рывок
-                {                                      
-                    rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
-                    animator.SetTrigger("Jump");
-                    animator.SetBool("Jump 1", true );
-                }
+        
+        if(Input.GetKey(KeyCode.A)||moveInput<-0.01f)//------------------------------------------------------------------------Лево
+        {   
+            Debug.Log("Speed: "+MaxSpeed);
+            if(facingRight)
+                Flip();                  
+            rb.AddForce(-transform.right * speed, ForceMode2D.Impulse);
+            MaxSpeed = rb.velocity.magnitude;
+            animator.SetBool("LeftRight", true);
+            if(Input.GetKeyDown(KeyCode.Space)&&Ground)//-----------------------------------------------------Прыжок/рывок
+            {                                      
+                rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
+                animator.SetTrigger("Jump");
+                animator.SetBool("Jump 1", true );
+            }
         }
     }
+
+    public void JumpJump()
+    {
+        if(Ground)rb.AddForce(transform.up * jumpHeight, ForceMode2D.Impulse);
+    }
+
+
 
     void Flip()
     {
@@ -72,26 +103,4 @@ public class Penguin : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
-    /*public void OnLeftButtonDown()
-    {
-        rb.AddForce(transform.right * speed, ForceMode2D.Impulse); 
-            Debug.Log("Left"+speed+", "+normalSpeed);
-            speed = -normalSpeed;
-            Debug.Log("Left "+speed+", "+normalSpeed);
-    }
-    public void OnRightButtonDown()
-    {
-            Debug.Log("Left"+speed+", "+normalSpeed);
-            speed = normalSpeed;
-            Debug.Log("Left "+speed+", "+normalSpeed);
-            
-    }
-    public void OnButtonUp()
-    {
-        speed = 0;
-        Debug.Log("Up "+speed+", "+normalSpeed);
-    }*/
-
-
-
 }

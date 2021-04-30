@@ -30,6 +30,9 @@ extern "C" void RegisterStaticallyLinkedModulesGranular()
 	void RegisterModule_JSONSerialize();
 	RegisterModule_JSONSerialize();
 
+	void RegisterModule_ParticleSystem();
+	RegisterModule_ParticleSystem();
+
 	void RegisterModule_Physics();
 	RegisterModule_Physics();
 
@@ -41,6 +44,9 @@ extern "C" void RegisterStaticallyLinkedModulesGranular()
 
 	void RegisterModule_TextRendering();
 	RegisterModule_TextRendering();
+
+	void RegisterModule_TextCore();
+	RegisterModule_TextCore();
 
 	void RegisterModule_UI();
 	RegisterModule_UI();
@@ -158,13 +164,13 @@ class LODGroup;
 class MeshFilter; template <> void RegisterUnityClass<MeshFilter>(const char*);
 class OcclusionArea; 
 class OcclusionPortal; 
-class ParticleSystem; 
+class ParticleSystem; template <> void RegisterUnityClass<ParticleSystem>(const char*);
 class Renderer; template <> void RegisterUnityClass<Renderer>(const char*);
 class BillboardRenderer; 
 class LineRenderer; 
 class RendererFake; 
 class MeshRenderer; template <> void RegisterUnityClass<MeshRenderer>(const char*);
-class ParticleSystemRenderer; 
+class ParticleSystemRenderer; template <> void RegisterUnityClass<ParticleSystemRenderer>(const char*);
 class SkinnedMeshRenderer; 
 class SpriteMask; 
 class SpriteRenderer; template <> void RegisterUnityClass<SpriteRenderer>(const char*);
@@ -174,7 +180,7 @@ class TrailRenderer;
 class VFXRenderer; 
 class Rigidbody; template <> void RegisterUnityClass<Rigidbody>(const char*);
 class Rigidbody2D; template <> void RegisterUnityClass<Rigidbody2D>(const char*);
-namespace TextRenderingPrivate { class TextMesh; } 
+namespace TextRenderingPrivate { class TextMesh; } template <> void RegisterUnityClass<TextRenderingPrivate::TextMesh>(const char*);
 class Transform; template <> void RegisterUnityClass<Transform>(const char*);
 namespace UI { class RectTransform; } template <> void RegisterUnityClass<UI::RectTransform>(const char*);
 class Tree; 
@@ -285,7 +291,7 @@ void RegisterAllClasses()
 {
 void RegisterBuiltinTypes();
 RegisterBuiltinTypes();
-	//Total: 84 non stripped classes
+	//Total: 87 non stripped classes
 	//0. Animation
 	RegisterUnityClass<Animation>("Animation");
 	//1. AnimationClip
@@ -418,41 +424,47 @@ RegisterBuiltinTypes();
 	RegisterUnityClass<Transform>("Core");
 	//65. PlayableDirector
 	RegisterUnityClass<PlayableDirector>("Director");
-	//66. BoxCollider
+	//66. ParticleSystem
+	RegisterUnityClass<ParticleSystem>("ParticleSystem");
+	//67. ParticleSystemRenderer
+	RegisterUnityClass<ParticleSystemRenderer>("ParticleSystem");
+	//68. BoxCollider
 	RegisterUnityClass<BoxCollider>("Physics");
-	//67. Collider
+	//69. Collider
 	RegisterUnityClass<Collider>("Physics");
-	//68. PhysicsManager
+	//70. PhysicsManager
 	RegisterUnityClass<PhysicsManager>("Physics");
-	//69. Rigidbody
+	//71. Rigidbody
 	RegisterUnityClass<Rigidbody>("Physics");
-	//70. SphereCollider
+	//72. SphereCollider
 	RegisterUnityClass<SphereCollider>("Physics");
-	//71. BoxCollider2D
+	//73. BoxCollider2D
 	RegisterUnityClass<BoxCollider2D>("Physics2D");
-	//72. CapsuleCollider2D
+	//74. CapsuleCollider2D
 	RegisterUnityClass<CapsuleCollider2D>("Physics2D");
-	//73. CircleCollider2D
+	//75. CircleCollider2D
 	RegisterUnityClass<CircleCollider2D>("Physics2D");
-	//74. Collider2D
+	//76. Collider2D
 	RegisterUnityClass<Collider2D>("Physics2D");
-	//75. CompositeCollider2D
+	//77. CompositeCollider2D
 	RegisterUnityClass<CompositeCollider2D>("Physics2D");
-	//76. Physics2DSettings
+	//78. Physics2DSettings
 	RegisterUnityClass<Physics2DSettings>("Physics2D");
-	//77. PhysicsMaterial2D
+	//79. PhysicsMaterial2D
 	RegisterUnityClass<PhysicsMaterial2D>("Physics2D");
-	//78. PolygonCollider2D
+	//80. PolygonCollider2D
 	RegisterUnityClass<PolygonCollider2D>("Physics2D");
-	//79. Rigidbody2D
+	//81. Rigidbody2D
 	RegisterUnityClass<Rigidbody2D>("Physics2D");
-	//80. TextRendering::Font
+	//82. TextRendering::Font
 	RegisterUnityClass<TextRendering::Font>("TextRendering");
-	//81. UI::Canvas
+	//83. TextRenderingPrivate::TextMesh
+	RegisterUnityClass<TextRenderingPrivate::TextMesh>("TextRendering");
+	//84. UI::Canvas
 	RegisterUnityClass<UI::Canvas>("UI");
-	//82. UI::CanvasGroup
+	//85. UI::CanvasGroup
 	RegisterUnityClass<UI::CanvasGroup>("UI");
-	//83. UI::CanvasRenderer
+	//86. UI::CanvasRenderer
 	RegisterUnityClass<UI::CanvasRenderer>("UI");
 
 }

@@ -2001,6 +2001,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float RaycastHit2D_get_distance_mA910B45BD349
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Collider2D_tDDBF081328B83D21D0BA3B5036D77B32528BA722 * RaycastHit2D_get_collider_m00F7EC55C36F39E2ED64B31354FB4D9C8938D563 (RaycastHit2D_t210878DAEBC96C1F69DF9883C454758724A106A4 * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.Rigidbody2D::get_velocity_Injected(UnityEngine.Vector2&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody2D_get_velocity_Injected_m2102CD221C46BA3C36127D7413D8C35A402A8903 (Rigidbody2D_tD23204FEE9CB4A36737043B97FD409DE05D5DCE5 * __this, Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9 * ___ret0, const RuntimeMethod* method);
+// System.Void UnityEngine.Rigidbody2D::set_velocity_Injected(UnityEngine.Vector2&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody2D_set_velocity_Injected_m198FAA0E7A328E1B236FC5835C9711987D3C691E (Rigidbody2D_tD23204FEE9CB4A36737043B97FD409DE05D5DCE5 * __this, Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9 * ___value0, const RuntimeMethod* method);
 // System.Void UnityEngine.Rigidbody2D::AddForce_Injected(UnityEngine.Vector2&,UnityEngine.ForceMode2D)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody2D_AddForce_Injected_m238B89F81818A2A5A0CBD3BADE376151EA7243C7 (Rigidbody2D_tD23204FEE9CB4A36737043B97FD409DE05D5DCE5 * __this, Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9 * ___force0, int32_t ___mode1, const RuntimeMethod* method);
 // System.Void UnityEngine.Component::.ctor()
@@ -3972,6 +3974,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7E
 		return L_0;
 	}
 }
+// System.Void UnityEngine.Rigidbody2D::set_velocity(UnityEngine.Vector2)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody2D_set_velocity_m56B745344E78C85462843AE623BF0A40764FC2DA (Rigidbody2D_tD23204FEE9CB4A36737043B97FD409DE05D5DCE5 * __this, Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9  ___value0, const RuntimeMethod* method)
+{
+	{
+		Rigidbody2D_set_velocity_Injected_m198FAA0E7A328E1B236FC5835C9711987D3C691E(__this, (Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9 *)(&___value0), /*hidden argument*/NULL);
+		return;
+	}
+}
 // System.Single UnityEngine.Rigidbody2D::get_mass()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Rigidbody2D_get_mass_mE62570BBAB2CE7ACC2FA3B20EE5EB8FBDBEF019F (Rigidbody2D_tD23204FEE9CB4A36737043B97FD409DE05D5DCE5 * __this, const RuntimeMethod* method)
 {
@@ -4007,6 +4017,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody2D_get_velocity_Injected_m2102C
 	if (!_il2cpp_icall_func)
 	_il2cpp_icall_func = (Rigidbody2D_get_velocity_Injected_m2102CD221C46BA3C36127D7413D8C35A402A8903_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Rigidbody2D::get_velocity_Injected(UnityEngine.Vector2&)");
 	_il2cpp_icall_func(__this, ___ret0);
+}
+// System.Void UnityEngine.Rigidbody2D::set_velocity_Injected(UnityEngine.Vector2&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody2D_set_velocity_Injected_m198FAA0E7A328E1B236FC5835C9711987D3C691E (Rigidbody2D_tD23204FEE9CB4A36737043B97FD409DE05D5DCE5 * __this, Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9 * ___value0, const RuntimeMethod* method)
+{
+	typedef void (*Rigidbody2D_set_velocity_Injected_m198FAA0E7A328E1B236FC5835C9711987D3C691E_ftn) (Rigidbody2D_tD23204FEE9CB4A36737043B97FD409DE05D5DCE5 *, Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9 *);
+	static Rigidbody2D_set_velocity_Injected_m198FAA0E7A328E1B236FC5835C9711987D3C691E_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Rigidbody2D_set_velocity_Injected_m198FAA0E7A328E1B236FC5835C9711987D3C691E_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Rigidbody2D::set_velocity_Injected(UnityEngine.Vector2&)");
+	_il2cpp_icall_func(__this, ___value0);
 }
 // System.Void UnityEngine.Rigidbody2D::AddForce_Injected(UnityEngine.Vector2&,UnityEngine.ForceMode2D)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Rigidbody2D_AddForce_Injected_m238B89F81818A2A5A0CBD3BADE376151EA7243C7 (Rigidbody2D_tD23204FEE9CB4A36737043B97FD409DE05D5DCE5 * __this, Vector2_tBB32F2736AEC229A7BFBCE18197EC0F6AC7EC2D9 * ___force0, int32_t ___mode1, const RuntimeMethod* method)
