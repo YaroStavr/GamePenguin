@@ -10,7 +10,7 @@
     "timeline",
     "tools"
   ],
-  "description": "Use Unity Timeline to create cinematic content, game-play sequences, audio sequences, and complex particle effects.", 
+  "description": "Use Unity Timeline to create cinematic content, game-play sequences, audio sequences, and complex particle effects.",
   "dependencies": {
     "com.unity.modules.director": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

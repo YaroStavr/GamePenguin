@@ -2529,7 +2529,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!61 &1753131103
 BoxCollider2D:
@@ -2617,7 +2617,7 @@ Transform:
   m_GameObject: {fileID: 1753131101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 39.5, y: -5.26, z: 0}
-  m_LocalScale: {x: 10, y: 1.875, z: 1}
+  m_LocalScale: {x: 10, y: 1.875, z: 4.3172}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 18
@@ -2850,7 +2850,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0005563721, y: -0.12841375}
+  m_Offset: {x: -0.00021228194, y: -0.120239}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2861,7 +2861,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14136772, y: 0.023172468}
+  m_Size: {x: 0.139476, y: 0.039521977}
   m_EdgeRadius: 0
 --- !u!1 &1866203466
 GameObject:
@@ -3874,6 +3874,10 @@ PrefabInstance:
       value: 0.28012553
       objectReference: {fileID: 0}
     - target: {fileID: 7740133504043809480, guid: 0f4156e37f0f74244ba497bb067623ac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740133504043809480, guid: 0f4156e37f0f74244ba497bb067623ac, type: 3}
       propertyPath: m_Offset.x
       value: -0.00064468384
       objectReference: {fileID: 0}
@@ -3885,10 +3889,26 @@ PrefabInstance:
       propertyPath: m_UsedByEffector
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7740133504043809482, guid: 0f4156e37f0f74244ba497bb067623ac, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740133504043809483, guid: 0f4156e37f0f74244ba497bb067623ac, type: 3}
+      propertyPath: speed
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 7740133504043809483, guid: 0f4156e37f0f74244ba497bb067623ac, type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1870235419}
+    - target: {fileID: 7740133504043809483, guid: 0f4156e37f0f74244ba497bb067623ac, type: 3}
+      propertyPath: jumpHeight
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7740133504043809483, guid: 0f4156e37f0f74244ba497bb067623ac, type: 3}
+      propertyPath: normalSpeed
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 7740133504043809483, guid: 0f4156e37f0f74244ba497bb067623ac, type: 3}
       propertyPath: speedMobile
       value: 7
